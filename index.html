@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endoscopy Suite — Colonoscopy recording &amp; reporting, 100% offline</title>
+  <meta name="description" content="Turn any USB capture card into a colonoscopy workstation: record procedures, capture findings, and print clinic-branded PDF reports — no internet, no subscriptions. English & Arabic.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Endoscopy Suite",
+    "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "MedicalSoftware",
+    "description": "Offline-first colonoscopy procedure recorder and reporting workstation for small clinics. Records via any USB capture card, captures findings as screenshots, and prints clinic-branded bilingual PDF reports.",
+    "inLanguage": ["en", "ar"],
+    "author": { "@type": "Person", "name": "Hussien Essam" }
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <!-- Shared scope art, referenced by <use> below -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="jLumGlow" cx="50%" cy="46%" r="65%">
+        <stop offset="0%" stop-color="#7A4A50" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#1B2B30" stop-opacity="0"/>
+      </radialGradient>
+      <g id="lumen">
+        <path d="M10,-128 C66,-136 120,-98 131,-36 C142,26 107,92 48,115 C-11,138 -90,123 -122,66 C-154,9 -139,-75 -84,-109 C-60,-123 -28,-126 10,-128 Z" fill="#3A2A2F"/>
+        <path d="M8,-101 C54,-108 97,-76 106,-28 C115,20 88,72 42,90 C-8,109 -72,96 -98,52 C-124,8 -112,-59 -69,-86 C-48,-98 -22,-101 8,-101 Z" fill="#5C3C42" transform="rotate(11)"/>
+        <path d="M6,-77 C42,-82 76,-58 83,-21 C90,16 70,56 34,70 C-6,85 -55,74 -75,40 C-95,6 -86,-45 -53,-66 C-36,-76 -15,-78 6,-77 Z" fill="#7E4F55" transform="rotate(-9)"/>
+        <path d="M5,-56 C32,-60 57,-42 62,-15 C67,12 52,42 26,53 C-4,65 -40,56 -55,31 C-70,6 -63,-33 -38,-48 C-25,-56 -10,-57 5,-56 Z" fill="#A26969" transform="rotate(6)"/>
+        <path d="M4,-37 C22,-40 40,-28 43,-10 C46,8 36,28 18,35 C-3,43 -28,37 -38,20 C-48,3 -43,-22 -26,-32 C-17,-37 -7,-38 4,-37 Z" fill="#C48B85" transform="rotate(-7)"/>
+        <path d="M3,-20 C13,-22 24,-15 25,-5 C26,5 21,16 11,20 C0,24 -13,20 -19,11 C-25,2 -22,-12 -12,-18 C-7,-20 -1,-21 3,-20 Z" fill="#DFAEA3" transform="rotate(4)"/>
+        <ellipse cx="0" cy="0" rx="10" ry="9" fill="#2B1B20"/>
+        <path d="M-96,-40 C-70,-52 -40,-56 -8,-52" fill="none" stroke="#8E5258" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+        <path d="M52,64 C76,48 94,24 100,-6" fill="none" stroke="#8E5258" stroke-width="4.5" stroke-linecap="round" opacity="0.4"/>
+        <ellipse cx="-30" cy="-30" rx="34" ry="16" fill="#F3D9CE" opacity="0.14" transform="rotate(-24)"/>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Endoscopy Suite">
+        <img src="assets/logo.svg" alt="" width="30" height="30">
+        <span>
+          <span class="brand-name">Endoscopy Suite</span>
+          <span class="brand-sub">Colonoscopy workstation</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main">
+        <a href="#how" data-i18n="nav.how"></a>
+        <a href="#features" data-i18n="nav.features"></a>
+        <a href="#reports" data-i18n="nav.reports"></a>
+        <a href="#security" data-i18n="nav.security"></a>
+        <a href="#license" data-i18n="nav.license"></a>
+        <a href="#faq" data-i18n="nav.faq"></a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="ar" aria-pressed="false">عربي</button>
+        </div>
+        <a class="btn btn-primary nav-cta" data-link="download" href="#" data-i18n="nav.download"></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker" data-i18n="hero.kicker"></span>
+        <h1 data-i18n="hero.h1"></h1>
+        <p class="lead" data-i18n="hero.lead"></p>
+        <div class="btn-row">
+          <a class="btn btn-primary" data-link="download" href="#">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+            <span data-i18n="hero.ctaPrimary"></span>
+          </a>
+          <a class="btn btn-ghost" href="#how">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 5 4-5 4Z"/></svg>
+            <span data-i18n="hero.ctaSecondary"></span>
+          </a>
+          <a class="btn btn-ghost" data-link="license" href="#">
+            <span data-i18n="hero.ctaTertiary"></span>
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.meta1"></span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.meta2"></span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.meta3"></span></span>
+        </div>
+      </div>
+
+      <!-- Procedure room: animated picture of the app, one GIF per language -->
+      <figure class="app-window reveal">
+        <div class="lang-en-only"><img src="assets/mockups/room-en.gif" width="960" height="514" alt="" data-i18n-alt="hero.gifAlt"></div>
+        <div class="lang-ar-only"><img src="assets/mockups/room-ar.gif" width="960" height="514" alt="" data-i18n-alt="hero.gifAlt"></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ FACTS STRIP ============ -->
+  <section class="strip">
+    <div class="container strip-inner">
+      <div class="strip-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M8.5 16.4a5 5 0 0 1 7 0"/><path d="M5 12.9a10 10 0 0 1 14 0"/><path d="M2 9.4a15 15 0 0 1 20 0"/><path d="m2 2 20 20"/></svg>
+        <div><strong data-i18n="strip.1t"></strong><span data-i18n="strip.1d"></span></div>
+      </div>
+      <div class="strip-item reveal" style="--d:.06s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2.6a2 2 0 0 0-1.4-.6H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r=".5"/></svg>
+        <div><strong data-i18n="strip.2t"></strong><span data-i18n="strip.2d"></span></div>
+      </div>
+      <div class="strip-item reveal" style="--d:.12s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M7 8h10v4a5 5 0 0 1-10 0z"/><path d="M12 17v5"/></svg>
+        <div><strong data-i18n="strip.3t"></strong><span data-i18n="strip.3d"></span></div>
+      </div>
+      <div class="strip-item reveal" style="--d:.18s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+        <div><strong data-i18n="strip.4t"></strong><span data-i18n="strip.4d"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAINS → GAINS ============ -->
+  <section class="section" id="why" style="padding-bottom:clamp(48px,6vw,80px)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="prob.kicker"></span>
+        <h2 data-i18n="prob.h2"></h2>
+        <p class="lead" data-i18n="prob.lead"></p>
+      </div>
+      <div class="pains-grid">
+        <article class="pain-card reveal">
+          <p class="prob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span data-i18n="prob.1p"></span></p>
+          <p class="gain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="prob.1g"></span></p>
+        </article>
+        <article class="pain-card reveal" style="--d:.05s">
+          <p class="prob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span data-i18n="prob.2p"></span></p>
+          <p class="gain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="prob.2g"></span></p>
+        </article>
+        <article class="pain-card reveal" style="--d:.1s">
+          <p class="prob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span data-i18n="prob.3p"></span></p>
+          <p class="gain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="prob.3g"></span></p>
+        </article>
+        <article class="pain-card reveal" style="--d:.15s">
+          <p class="prob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span data-i18n="prob.4p"></span></p>
+          <p class="gain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="prob.4g"></span></p>
+        </article>
+        <article class="pain-card reveal" style="--d:.2s">
+          <p class="prob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span data-i18n="prob.5p"></span></p>
+          <p class="gain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="prob.5g"></span></p>
+        </article>
+        <article class="pain-card reveal" style="--d:.25s">
+          <p class="prob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span data-i18n="prob.6p"></span></p>
+          <p class="gain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="prob.6g"></span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE DOCTOR'S JOURNEY ============ -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="journey.kicker"></span>
+        <h2 data-i18n="journey.h2"></h2>
+        <p class="lead" data-i18n="journey.lead"></p>
+      </div>
+
+      <div class="journey">
+
+        <!-- 01 · PIN & identity -->
+        <article class="j-stop reveal">
+          <div class="j-media">
+            <div class="lang-en-only"><img src="assets/mockups/pin-en.png" alt="" loading="lazy"></div>
+            <div class="lang-ar-only"><img src="assets/mockups/pin-ar.png" alt="" loading="lazy"></div>
+          </div>
+          <div class="j-text">
+            <span class="j-no">01</span>
+            <h3 data-i18n="journey.1t"></h3>
+            <p data-i18n="journey.1d"></p>
+            <ul class="j-points">
+              <li data-i18n="journey.1a"></li>
+              <li data-i18n="journey.1b"></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 02 · patient + room ready -->
+        <article class="j-stop reveal">
+          <div class="j-media">
+            <div class="lang-en-only"><img src="assets/mockups/setup-en.png" alt="" loading="lazy"></div>
+            <div class="lang-ar-only"><img src="assets/mockups/setup-ar.png" alt="" loading="lazy"></div>
+          </div>
+          <div class="j-text">
+            <span class="j-no">02</span>
+            <h3 data-i18n="journey.2t"></h3>
+            <p data-i18n="journey.2d"></p>
+            <ul class="j-points">
+              <li data-i18n="journey.2a"></li>
+              <li data-i18n="journey.2b"></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 03 · record (illustration) -->
+        <article class="j-stop reveal">
+          <div class="j-media illus">
+            <span class="j-illus" data-i18n="journey.illusTag"></span>
+            <svg viewBox="0 0 640 400" role="img" aria-hidden="true">
+              <rect width="640" height="400" fill="#152327"/>
+              <rect width="640" height="400" fill="url(#jLumGlow)"/>
+              <use href="#lumen" transform="translate(320 178) scale(1.08)"/>
+              <g font-family="IBM Plex Mono, monospace">
+                <circle cx="28" cy="30" r="5" fill="#C4422C"/>
+                <text x="42" y="34" font-size="14" fill="#FCFCFC" letter-spacing="1.5">REC 00:14:32</text>
+                <text x="612" y="34" font-size="12" fill="#80908F" text-anchor="end">AES-256</text>
+              </g>
+              <rect x="24" y="352" width="592" height="4" rx="2" fill="#22343A"/>
+              <rect x="24" y="352" width="237" height="4" rx="2" fill="#005A5A"/>
+              <circle cx="261" cy="354" r="6" fill="#FCFCFC"/>
+              <circle cx="140" cy="354" r="4.5" fill="#005A5A" stroke="#152327" stroke-width="2"/>
+              <circle cx="205" cy="354" r="4.5" fill="#005A5A" stroke="#152327" stroke-width="2"/>
+              <circle cx="330" cy="354" r="4.5" fill="#556767" stroke="#152327" stroke-width="2"/>
+              <text x="24" y="382" font-family="IBM Plex Mono, monospace" font-size="11" fill="#80908F">00:00</text>
+              <text x="616" y="382" font-family="IBM Plex Mono, monospace" font-size="11" fill="#80908F" text-anchor="end">01:45:20</text>
+              <rect x="446" y="308" width="170" height="32" rx="8" fill="#005A5A"/>
+              <text x="531" y="329" font-family="IBM Plex Mono, monospace" font-size="13" fill="#FCFCFC" text-anchor="middle" data-i18n="journey.sChip"></text>
+            </svg>
+          </div>
+          <div class="j-text">
+            <span class="j-no">03</span>
+            <h3 data-i18n="journey.3t"></h3>
+            <p data-i18n="journey.3d"></p>
+            <ul class="j-points">
+              <li data-i18n="journey.3a"></li>
+              <li data-i18n="journey.3b"></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 04 · review + late screenshots (illustration) -->
+        <article class="j-stop reveal">
+          <div class="j-media illus">
+            <span class="j-illus" data-i18n="journey.illusTag"></span>
+            <svg viewBox="0 0 640 400" role="img" aria-hidden="true">
+              <rect width="640" height="400" fill="#152327"/>
+              <use href="#lumen" transform="translate(320 168) scale(0.92)" opacity="0.62"/>
+              <g stroke="#FCFCFC" stroke-width="1.5" opacity="0.85">
+                <path d="M150 120 v-14 h14"/><path d="M490 106 h14 v14"/>
+                <path d="M150 216 v14 h14"/><path d="M504 216 v-14"/>
+              </g>
+              <g font-family="IBM Plex Mono, monospace">
+                <text x="320" y="52" font-size="13" fill="#80908F" text-anchor="middle">II 00:12:34 / 01:45:20</text>
+                <rect x="204" y="272" width="232" height="40" rx="10" fill="#005A5A"/>
+                <text x="320" y="298" font-size="15" fill="#FCFCFC" text-anchor="middle" data-i18n="journey.addBtn"></text>
+              </g>
+              <rect x="24" y="344" width="592" height="4" rx="2" fill="#22343A"/>
+              <rect x="24" y="344" width="424" height="4" rx="2" fill="#005A5A"/>
+              <circle cx="448" cy="346" r="7" fill="#FCFCFC"/>
+              <circle cx="140" cy="346" r="4.5" fill="#E0F5F5" stroke="#152327" stroke-width="2"/>
+              <circle cx="205" cy="346" r="4.5" fill="#E0F5F5" stroke="#152327" stroke-width="2"/>
+              <circle cx="448" cy="346" r="5.5" fill="#C4422C"/>
+              <text x="24" y="380" font-family="IBM Plex Mono, monospace" font-size="11" fill="#80908F">00:00</text>
+              <text x="616" y="380" font-family="IBM Plex Mono, monospace" font-size="11" fill="#80908F" text-anchor="end">01:45:20</text>
+            </svg>
+          </div>
+          <div class="j-text">
+            <span class="j-no">04</span>
+            <h3 data-i18n="journey.4t"></h3>
+            <p data-i18n="journey.4d"></p>
+            <ul class="j-points">
+              <li data-i18n="journey.4a"></li>
+              <li data-i18n="journey.4b"></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 05 · the signed report -->
+        <article class="j-stop reveal">
+          <div class="j-media">
+            <div class="lang-en-only"><img src="assets/mockups/final-en.png" alt="" loading="lazy"></div>
+            <div class="lang-ar-only"><img src="assets/mockups/final-ar.png" alt="" loading="lazy"></div>
+          </div>
+          <div class="j-text">
+            <span class="j-no">05</span>
+            <h3 data-i18n="journey.5t"></h3>
+            <p data-i18n="journey.5d"></p>
+            <ul class="j-points">
+              <li data-i18n="journey.5a"></li>
+              <li data-i18n="journey.5b"></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 06 · the clinic keeps running -->
+        <article class="j-stop reveal">
+          <div class="j-media">
+            <div class="lang-en-only"><img src="assets/mockups/team-en.png" alt="" loading="lazy"></div>
+            <div class="lang-ar-only"><img src="assets/mockups/team-ar.png" alt="" loading="lazy"></div>
+          </div>
+          <div class="j-text">
+            <span class="j-no">06</span>
+            <h3 data-i18n="journey.6t"></h3>
+            <p data-i18n="journey.6d"></p>
+            <ul class="j-points">
+              <li data-i18n="journey.6a"></li>
+              <li data-i18n="journey.6b"></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="section" id="features" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="feat.kicker"></span>
+        <h2 data-i18n="feat.h2"></h2>
+        <p class="lead" data-i18n="feat.lead"></p>
+      </div>
+
+      <div class="bento">
+        <article class="b-card b-med reveal">
+          <span class="b-tag">01</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+          <h3 data-i18n="feat.rec.t"></h3>
+          <p data-i18n="feat.rec.d"></p>
+          <ul>
+            <li data-i18n="feat.rec.c1"></li>
+            <li data-i18n="feat.rec.c2"></li>
+            <li data-i18n="feat.rec.c3"></li>
+          </ul>
+          <div class="chips"><span>QSV</span><span>NVENC</span><span>AMF</span><span>x264</span></div>
+        </article>
+
+        <article class="b-card b-med reveal" style="--d:.06s">
+          <span class="b-tag">02</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+          <h3 data-i18n="feat.shot.t"></h3>
+          <p data-i18n="feat.shot.d"></p>
+          <ul>
+            <li data-i18n="feat.shot.c1"></li>
+            <li data-i18n="feat.shot.c2"></li>
+          </ul>
+        </article>
+
+        <article class="b-card b-med reveal">
+          <span class="b-tag">03</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <h3 data-i18n="feat.rev.t"></h3>
+          <p data-i18n="feat.rev.d"></p>
+          <ul>
+            <li data-i18n="feat.rev.c1"></li>
+            <li data-i18n="feat.rev.c2"></li>
+          </ul>
+        </article>
+
+        <article class="b-card b-med reveal" style="--d:.06s">
+          <span class="b-tag">04</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg></div>
+          <h3 data-i18n="feat.share.t"></h3>
+          <p data-i18n="feat.share.d"></p>
+          <ul>
+            <li data-i18n="feat.share.c1"></li>
+            <li data-i18n="feat.share.c2"></li>
+          </ul>
+        </article>
+
+        <article class="b-card b-full reveal">
+          <span class="b-tag">05</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></div>
+          <h3 data-i18n="feat.rep.t"></h3>
+          <p data-i18n="feat.rep.d"></p>
+          <ul class="b-cols">
+            <li data-i18n="feat.rep.l1"></li>
+            <li data-i18n="feat.rep.l2"></li>
+            <li data-i18n="feat.rep.l3"></li>
+            <li data-i18n="feat.rep.l4"></li>
+            <li data-i18n="feat.rep.l5"></li>
+          </ul>
+        </article>
+
+        <article class="b-card b-med reveal">
+          <span class="b-tag">06</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg></div>
+          <h3 data-i18n="feat.tpl.t"></h3>
+          <p data-i18n="feat.tpl.d"></p>
+        </article>
+
+        <article class="b-card b-med reveal" style="--d:.06s">
+          <span class="b-tag">07</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 2 3 7v10l9 5 9-5V7z"/></svg></div>
+          <h3 data-i18n="feat.move.t"></h3>
+          <p data-i18n="feat.move.d"></p>
+        </article>
+
+        <article class="b-card b-half reveal">
+          <span class="b-tag">08</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3 data-i18n="feat.pat.t"></h3>
+          <p data-i18n="feat.pat.d"></p>
+        </article>
+
+        <article class="b-card b-half reveal" style="--d:.06s">
+          <span class="b-tag">09</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 data-i18n="feat.team.t"></h3>
+          <p data-i18n="feat.team.d"></p>
+        </article>
+
+        <article class="b-card b-half reveal" style="--d:.12s">
+          <span class="b-tag">10</span>
+          <div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></div>
+          <h3 data-i18n="feat.backup.t"></h3>
+          <p data-i18n="feat.backup.d"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPORTS ============ -->
+  <section class="section reports-section" id="reports">
+    <div class="container reports-grid">
+      <!-- A4 report paper mockup -->
+      <div class="reveal">
+        <div class="report-paper" aria-hidden="true">
+          <div class="rp-clinic">
+            <span class="rp-logo">EC</span>
+            <div>
+              <strong>Cairo Endoscopy Center</strong>
+              <span>مركز القاهرة للمناظير</span>
+            </div>
+            <div class="rp-contact">12 Nile St., Cairo<br>+20 2 2345 6789</div>
+          </div>
+          <div class="rp-title">COLONOSCOPY PROCEDURE REPORT</div>
+          <div class="rp-title-ar">تقرير تنظير القولون</div>
+          <div class="rp-fields">
+            <div><b>Patient / المريض</b>Samer A.</div>
+            <div><b>Age / السن</b>46</div>
+            <div><b>Date / التاريخ</b>27 Oct 2026</div>
+            <div><b>MRN / رقم الملف</b>MRN-0189</div>
+          </div>
+          <div class="rp-body">
+            <div class="rp-diagram">
+              <svg viewBox="0 0 150 195">
+                <!-- colon outline -->
+                <path d="M62,190 L62,170 C62,152 48,148 46,130 C44,112 58,106 58,90 C58,72 52,66 52,50 C52,30 70,20 88,20 C106,20 118,28 118,44 C118,60 112,68 112,84 C112,100 118,110 118,126 C118,144 110,154 108,166"
+                      fill="none" stroke="#005A5A" stroke-width="9" stroke-linecap="round"/>
+                <!-- cecum + appendix -->
+                <circle cx="108" cy="172" r="8.5" fill="#E0F5F5" stroke="#005A5A" stroke-width="4.5"/>
+                <path d="M104,179 c-3,6 -9,7 -13,5" fill="none" stroke="#005A5A" stroke-width="4" stroke-linecap="round"/>
+                <!-- haustra ticks -->
+                <g stroke="#005A5A" stroke-width="1.6" opacity=".55">
+                  <path d="M48,42 l9,3"/><path d="M51,58 l8,-3"/>
+                  <path d="M70,22 l-2,8"/><path d="M86,20 l0,8"/><path d="M103,22 l2,8"/>
+                  <path d="M116,54 l-9,3"/><path d="M113,96 l-8,-3"/><path d="M117,140 l-9,-1"/>
+                  <path d="M58,100 l-8,2"/><path d="M47,142 l9,-2"/>
+                </g>
+                <!-- finding marker -->
+                <circle cx="47" cy="128" r="4" fill="#C4422C"/>
+                <circle cx="47" cy="128" r="7.5" fill="none" stroke="#C4422C" stroke-width="1.2" opacity=".5"/>
+                <!-- labels -->
+                <g font-family="IBM Plex Mono, monospace" font-size="7" fill="#556767">
+                  <g class="lang-en-only">
+                    <text x="75" y="10" text-anchor="middle">Transverse</text>
+                    <text x="42" y="76" text-anchor="end">Descending</text>
+                    <text x="126" y="100">Ascending</text>
+                    <text x="38" y="128" text-anchor="end">Sigmoid</text>
+                    <text x="128" y="182">Cecum</text>
+                  </g>
+                  <g class="lang-ar-only" font-family="Cairo, sans-serif" font-size="9">
+                    <text x="75" y="10" text-anchor="middle">المستعرض</text>
+                    <text x="42" y="76" text-anchor="end">النازل</text>
+                    <text x="124" y="100">الصاعد</text>
+                    <text x="38" y="128" text-anchor="end">السيني</text>
+                    <text x="126" y="184">الأعور</text>
+                  </g>
+                </g>
+                <g stroke="#80908F" stroke-width="0.8" class="lang-en-only">
+                  <path d="M75 12 v6"/><path d="M44 76 h6"/><path d="M124 100 h-8"/><path d="M40 128 h5"/><path d="M126 182 h-10"/>
+                </g>
+                <g stroke="#80908F" stroke-width="0.8" class="lang-ar-only">
+                  <path d="M75 12 v6"/><path d="M44 76 h6"/><path d="M122 100 h-8"/><path d="M40 128 h5"/><path d="M124 182 h-10"/>
+                </g>
+              </svg>
+              <div class="rp-diagram-cap">
+                <span class="lang-en-only">Colon diagram — finding marked</span>
+                <span class="lang-ar-only">مخطط القولون — النتيجة مُعلَّمة</span>
+              </div>
+            </div>
+            <div class="rp-lines">
+              <div class="rp-line"><b>FINDINGS / النتائج</b><div class="bar" style="--w:88%"></div><div class="bar" style="--w:64%;margin-top:5px"></div></div>
+              <div class="rp-line"><b>DIAGNOSIS / التشخيص</b><div class="bar" style="--w:72%"></div></div>
+              <div class="rp-line"><b>RECOMMENDATIONS / التوصيات</b><div class="bar" style="--w:52%"></div></div>
+              <div class="rp-line"><b>FRAMES / الصور</b><div class="bar" style="--w:38%;background:#E0F5F5"></div></div>
+            </div>
+          </div>
+          <div class="rp-footer">
+            <div class="rp-sig">
+              <span class="sig-script">H. Essam</span>
+              <div class="sig-line"></div>
+              <span>Dr. Hussien Essam — Consultant</span>
+            </div>
+            <span class="rp-stamp">Finalized · CLN-000001</span>
+          </div>
+        </div>
+        <div class="bi-chips">
+          <span class="bi"><b data-i18n="rep.chip4"></b></span>
+          <span class="bi" data-i18n="rep.chip1"></span>
+          <span class="bi" data-i18n="rep.chip2"></span>
+          <span class="bi" data-i18n="rep.chip3"></span>
+        </div>
+      </div>
+
+      <div class="section-head reveal" style="margin-bottom:0">
+        <span class="kicker" data-i18n="rep.kicker"></span>
+        <h2 data-i18n="rep.h2"></h2>
+        <p class="lead" data-i18n="rep.lead"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECURITY ============ -->
+  <section class="section security-section" id="security">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="sec.kicker"></span>
+        <h2 data-i18n="sec.h2"></h2>
+        <p class="lead" data-i18n="sec.lead"></p>
+      </div>
+      <div class="sec-grid">
+        <div class="sec-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div><h3 data-i18n="sec.1t"></h3><p data-i18n="sec.1d"></p></div>
+        </div>
+        <div class="sec-card reveal" style="--d:.05s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 5 4-5 4Z"/></svg>
+          <div><h3 data-i18n="sec.2t"></h3><p data-i18n="sec.2d"></p></div>
+        </div>
+        <div class="sec-card reveal" style="--d:.1s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+          <div><h3 data-i18n="sec.3t"></h3><p data-i18n="sec.3d"></p></div>
+        </div>
+        <div class="sec-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 17.4A2 2 0 0 0 2 18.8V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.2a2 2 0 0 0 1.4-.6l.8-.8a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5"/></svg>
+          <div><h3 data-i18n="sec.4t"></h3><p data-i18n="sec.4d"></p></div>
+        </div>
+        <div class="sec-card reveal" style="--d:.05s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+          <div><h3 data-i18n="sec.5t"></h3><p data-i18n="sec.5d"></p></div>
+        </div>
+        <div class="sec-card reveal" style="--d:.1s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 9h18"/><circle cx="16.5" cy="15.5" r="3.5"/><path d="M16.5 13.8v1.9l1.2.8"/></svg>
+          <div><h3 data-i18n="sec.6t"></h3><p data-i18n="sec.6d"></p></div>
+        </div>
+      </div>
+      <p class="sec-note reveal" data-i18n="sec.note"></p>
+    </div>
+  </section>
+
+  <!-- ============ HARDWARE ============ -->
+  <section class="section hw-band" id="hardware">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="hw.kicker"></span>
+        <h2 data-i18n="hw.h2"></h2>
+      </div>
+      <div class="hw-grid">
+        <div class="hw-card reveal">
+          <div class="hw-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="12" rx="2"/><path d="M12 16v4"/><path d="M8 20h8"/></svg>
+            <h3 data-i18n="hw.1t"></h3>
+          </div>
+          <p data-i18n="hw.1d"></p>
+          <span class="hw-spec" data-i18n="hw.1s"></span>
+        </div>
+        <div class="hw-card reveal" style="--d:.06s">
+          <div class="hw-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            <h3 data-i18n="hw.2t"></h3>
+          </div>
+          <p data-i18n="hw.2d"></p>
+          <span class="hw-spec" data-i18n="hw.2s"></span>
+        </div>
+        <div class="hw-card reveal" style="--d:.12s">
+          <div class="hw-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M7 8h10v4a5 5 0 0 1-10 0z"/><path d="M12 17v5"/></svg>
+            <h3 data-i18n="hw.3t"></h3>
+          </div>
+          <p data-i18n="hw.3d"></p>
+          <span class="hw-spec" data-i18n="hw.3s"></span>
+        </div>
+        <div class="hw-card reveal" style="--d:.18s">
+          <div class="hw-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+            <h3 data-i18n="hw.4t"></h3>
+          </div>
+          <p data-i18n="hw.4d"></p>
+          <span class="hw-spec" data-i18n="hw.4s"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LICENSE ============ -->
+  <section class="section" id="license">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="lic.kicker"></span>
+        <h2 data-i18n="lic.h2"></h2>
+        <p class="lead" data-i18n="lic.lead"></p>
+      </div>
+      <div class="lic-grid">
+        <article class="lic-card featured reveal">
+          <span class="lic-flag" data-i18n="lic.1flag"></span>
+          <h3 data-i18n="lic.1t"></h3>
+          <div class="lic-price"><span data-i18n="lic.1p"></span><span data-i18n="lic.1p2"></span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.1l1"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.1l2"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.1l3"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.1l4"></span></li>
+          </ul>
+          <a class="btn btn-primary" data-link="license" href="#" data-i18n="lic.1cta"></a>
+        </article>
+
+        <article class="lic-card reveal" style="--d:.08s">
+          <h3 data-i18n="lic.2t"></h3>
+          <div class="lic-price"><span data-i18n="lic.2p"></span><span data-i18n="lic.2p2"></span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.2l1"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.2l2"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.2l3"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.2l4"></span></li>
+          </ul>
+          <a class="btn btn-ghost" data-link="email" href="#" data-i18n="lic.2cta"></a>
+        </article>
+
+        <article class="lic-card reveal" style="--d:.16s">
+          <h3 data-i18n="lic.3t"></h3>
+          <div class="lic-price"><span data-i18n="lic.3p"></span><span data-i18n="lic.3p2"></span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.3l1"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.3l2"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.3l3"></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="lic.3l4"></span></li>
+          </ul>
+          <a class="btn btn-ghost" data-link="email" href="#" data-i18n="lic.3cta"></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="faq.kicker"></span>
+        <h2 data-i18n="faq.h2"></h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary><span data-i18n="faq.q1"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a1"></div></details>
+        <details><summary><span data-i18n="faq.q2"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a2"></div></details>
+        <details><summary><span data-i18n="faq.q3"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a3"></div></details>
+        <details><summary><span data-i18n="faq.q4"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a4"></div></details>
+        <details><summary><span data-i18n="faq.q5"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a5"></div></details>
+        <details><summary><span data-i18n="faq.q6"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a6"></div></details>
+        <details><summary><span data-i18n="faq.q7"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a7"></div></details>
+        <details><summary><span data-i18n="faq.q8"></span><span class="faq-plus">+</span></summary><div class="faq-body" data-i18n="faq.a8"></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2 data-i18n="cta.h2"></h2>
+        <p data-i18n="cta.p"></p>
+        <div class="btn-row">
+          <a class="btn btn-primary" data-link="download" href="#" style="background:#F6F3EE;color:#052D2D">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+            <span data-i18n="cta.primary"></span>
+          </a>
+          <a class="btn btn-ghost" data-link="email" href="#">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <span data-i18n="cta.secondary"></span>
+          </a>
+        </div>
+        <p class="cta-fine" data-i18n="cta.fine"></p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand" href="#top">
+            <img src="assets/logo.svg" alt="" width="30" height="30">
+            <span>
+              <span class="brand-name">Endoscopy Suite</span>
+              <span class="brand-sub">Colonoscopy workstation</span>
+            </span>
+          </a>
+          <p data-i18n="foot.tag"></p>
+        </div>
+        <div class="footer-col">
+          <span class="kicker" data-i18n="foot.contact"></span>
+          <p style="margin-top:12px">
+            <a data-link="email-text" href="#" data-autofill="1">hussienessam04@gmail.com</a><br>
+            <a data-link="download" href="#">GitHub — Releases</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="kicker" data-i18n="foot.links"></span>
+          <div class="footer-links" style="margin-top:12px">
+            <a href="#how" data-i18n="nav.how"></a>
+            <a href="#features" data-i18n="nav.features"></a>
+            <a href="#reports" data-i18n="nav.reports"></a>
+            <a href="#security" data-i18n="nav.security"></a>
+            <a href="#license" data-i18n="nav.license"></a>
+            <a href="#faq" data-i18n="nav.faq"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="foot.bottom"></span>
+        <span data-i18n="foot.made"></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
