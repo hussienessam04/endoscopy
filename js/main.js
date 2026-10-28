@@ -9,9 +9,8 @@
 (function () {
   "use strict";
 
-  /* ---------- Downloads / contact constants ---------- */
+  /* ---------- Contact constants ---------- */
 
-  var RELEASES_URL = "https://github.com/hussienessam04/colonoscopist-releases/releases/latest";
   var CONTACT_EMAIL = "hussienessam04@gmail.com";
   var MAIL_LICENSE =
     "mailto:" + CONTACT_EMAIL +
@@ -37,15 +36,14 @@
       "nav.security": "Security",
       "nav.license": "License",
       "nav.faq": "FAQ",
-      "nav.download": "Download",
+      "nav.request": "Request license",
 
       "hero.kicker": "Colonoscopy reporting workstation",
       "hero.h1": 'From the first frame of the scope to <em>the final report</em> — all in one place.',
       "hero.lead":
         "You record the procedure, capture every finding with one keypress, and hand the patient a clinic-branded report before they leave. Works with the camera you already own — no cloud, no IT, no subscriptions.",
-      "hero.ctaPrimary": "Download for Windows",
+      "hero.ctaPrimary": "Request your license",
       "hero.ctaSecondary": "See how it works",
-      "hero.ctaTertiary": "Request your license",
       "hero.meta1": "Windows 10 / 11",
       "hero.meta2": "English + العربية built in",
       "hero.meta3": "Patient data never leaves your clinic",
@@ -339,16 +337,16 @@
 
       "cta.h2": "Ready before your next scope is",
       "cta.p":
-        "Download the installer, see it on your real hardware this week, and email us to activate your clinic.",
-      "cta.primary": "Download for Windows",
-      "cta.secondary": "Talk to the developer",
-      "cta.fine": "Windows 10 / 11 (x64) · installer & portable builds",
+        "Email us to request your clinic's license. Activation is a single signed file you load on your own workstation.",
+      "cta.primary": "Request your license",
+      "cta.secondary": "Contact us",
+      "cta.fine": "Windows 10 / 11 (x64) · one license per workstation",
 
       "foot.tag":
         "Offline-first colonoscopy recording and reporting, built for small clinics.",
       "foot.contact": "Contact",
       "foot.links": "Site",
-      "foot.bottom": "© 2026 Hussien Essam · Endoscopy Suite. All rights reserved.",
+      "foot.bottom": "© 2026 Colovista Medical · Endoscopy Suite. All rights reserved.",
       "foot.made": "Proudly built in Egypt · Windows · x64"
     },
 
@@ -366,15 +364,14 @@
       "nav.security": "الأمان",
       "nav.license": "الترخيص",
       "nav.faq": "الأسئلة الشائعة",
-      "nav.download": "تحميل",
+      "nav.request": "طلب ترخيص",
 
       "hero.kicker": "محطة تقارير المناظير",
       "hero.h1": "من بداية المنظار حتى <em>التقرير النهائي</em> — كل شيء في مكان واحد",
       "hero.lead":
         "سجّل الإجراء، والتقط كل نتيجة بضغطة زر، وسلّم المريض تقريرًا رسميًا باسم عيادتك قبل أن يغادر. يعمل بالكاميرا التي تملكها بالفعل — بلا سحابة، ولا حاجة إلى فنيّ تقنية، ولا اشتراكات.",
-      "hero.ctaPrimary": "تحميل لنظام ويندوز",
+      "hero.ctaPrimary": "اطلب ترخيصك",
       "hero.ctaSecondary": "كيف يعمل التطبيق",
-      "hero.ctaTertiary": "اطلب الترخيص",
       "hero.meta1": "ويندوز 10 / 11",
       "hero.meta2": "العربية والإنجليزية مدمجتان",
       "hero.meta3": "بيانات المرضى لا تغادر العيادة",
@@ -668,16 +665,16 @@
 
       "cta.h2": "هل أنت مستعد لمنظارك القادم؟",
       "cta.p":
-        "حمّل البرنامج، وجرّبه على أجهزتك الفعلية هذا الأسبوع، ثم راسلنا لتفعيل عيادتك.",
-      "cta.primary": "تحميل لنظام ويندوز",
-      "cta.secondary": "تحدّث إلى المطوّر",
-      "cta.fine": "ويندوز 10 / 11 (64 بت) · نسخة تثبيت ونسخة محمولة",
+        "راسلنا لطلب ترخيص عيادتك. يتم التفعيل بملف ترخيص موقّع تحمّله على جهازك.",
+      "cta.primary": "اطلب ترخيصك",
+      "cta.secondary": "تواصل معنا",
+      "cta.fine": "ويندوز 10 / 11 (64 بت) · ترخيص لكل جهاز",
 
       "foot.tag":
         "تسجيل وتقارير المناظير التي تعمل دون إنترنت، صُمّمت للعيادات الصغيرة.",
       "foot.contact": "التواصل",
       "foot.links": "الموقع",
-      "foot.bottom": "© 2026 حسين عصام · Endoscopy Suite. جميع الحقوق محفوظة.",
+      "foot.bottom": "© 2026 كولوفيستا الطبية · Endoscopy Suite. جميع الحقوق محفوظة.",
       "foot.made": "صُنع بفخر في مصر · ويندوز · 64 بت"
     }
   };
@@ -729,7 +726,6 @@
 
   /* ---------- Wired links ---------- */
 
-  document.querySelectorAll("[data-link='download']").forEach(function (a) { a.href = RELEASES_URL; });
   document.querySelectorAll("[data-link='license']").forEach(function (a) { a.href = MAIL_LICENSE; });
   document.querySelectorAll("[data-link='email']").forEach(function (a) { a.href = "mailto:" + CONTACT_EMAIL; });
   document.querySelectorAll("[data-link='email-text']").forEach(function (a) {
