@@ -372,7 +372,7 @@ html[lang="ar"] .app-window { direction: rtl; }
   text-transform: uppercase;
 }
 
-/* Mockup pictures: rendered from the app mockups, one set per language */
+/* Real app screenshots (manual captures, exported as WebP) */
 figure.app-window { margin: 0; }
 .app-window img, .j-media img { display: block; width: 100%; height: auto; }
 
@@ -496,8 +496,7 @@ html[lang="ar"] .gain { font-weight: 700; }
   box-shadow: 0 22px 44px -22px rgba(5, 45, 45, 0.28);
 }
 .j-media img { display: block; width: 100%; height: auto; }
-.j-media.illus svg { display: block; width: 100%; height: auto; }
-.j-tag, .j-illus {
+.j-tag {
   position: absolute;
   top: 12px;
   inset-inline-start: 12px;
@@ -516,11 +515,6 @@ html[lang="ar"] .gain { font-weight: 700; }
   background: var(--accent-soft);
   color: var(--accent);
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-}
-.j-illus {
-  background: rgba(27, 43, 48, 0.72);
-  color: rgba(243, 239, 232, 0.8);
-  border: 1px solid var(--stage-line);
 }
 .j-tag::before {
   content: "";
@@ -1151,6 +1145,5 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .strip-inner { grid-template-columns: 1fr; }
   .strip-item { border-inline-start: 0; border-top: 1px solid var(--border); }
   .strip-item:first-child { border-top: 0; }
-  .j-illus { display: none; }
   .brand .brand-sub { display: none; }
 }
